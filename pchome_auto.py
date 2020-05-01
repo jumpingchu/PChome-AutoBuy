@@ -2,20 +2,30 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
-import settings
+import settings #需要的資料放在這
 
 url = settings.url
-driver = webdriver.Chrome(executable_path='chromedriver.exe')
+
+# 設定此 option 可讓 chrome 記住已登入帳戶，成功後可以省去"#登入帳戶"的程式碼
+options = webdriver.ChromeOptions()
+options.add_argument(r"--user-data-dir=C:\\<chrome 設定檔路徑>")  # 可透過 chrome://version/ 找到
+
+driver = webdriver.Chrome(executable_path='chromedriver.exe', chrome_options=options)
+driver.set_page_load_timeout(120)
 
 try:
-    driver.set_page_load_timeout(120)
     driver.get(url)
 
-    # 放入購物車並前往購物車
+    # 放入購物車
     WebDriverWait(driver, 20).until(
         expected_conditions.element_to_be_clickable((By.XPATH, "//li[@id='ButtonContainer']/button"))
     )
     driver.find_element_by_xpath("//li[@id='ButtonContainer']/button").click()
+
+    # 前往購物車
+    WebDriverWait(driver, 20).until(
+        expected_conditions.element_to_be_clickable((By.ID, "ico_cart"))
+    )
     driver.find_element_by_id('ico_cart').click()
 
     # 登入帳戶
