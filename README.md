@@ -21,7 +21,7 @@
     ```
 2. 準備 chromedriver
    
-   * MacOS：
+   * **MacOS**：
       1. 安裝 chromedriver
         ```bash
         $ brew install chromedriver
@@ -30,7 +30,7 @@
 
       2. `settings.py` 的 `driver_path` 填入上面顯示的路徑（如：/usr/local/bin/chromedriver）
    
-   * Windows：
+   * **Windows**：
       1. 在 Chrome 網址列輸入 chrome://settings/help 確認自己的 Chrome 版本（本人是使用 v91.0）
       2. 下載對應 Chrome 版本的 `chromedriver.exe` 並放在同個資料夾內 ([前往下載](https://sites.google.com/chromium.org/driver/))
    
