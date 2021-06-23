@@ -4,14 +4,14 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 
 # 欲搶購的連結、登入帳號、登入密碼及其他個資
-from settings import URL, CHROME_PATH, ACC, PWD, BuyerSSN, BirthYear, BirthMonth, BirthDay, multi_CVV2Num
+from settings import URL, DRIVER_PATH, CHROME_PATH, ACC, PWD, BuyerSSN, BirthYear, BirthMonth, BirthDay, multi_CVV2Num
 
 # 設定此 option 可讓 chrome 記住已登入帳戶，成功後可以省去後續"登入帳戶"的程式碼
 options = webdriver.ChromeOptions()  
 options.add_argument(CHROME_PATH)  
 
 driver = webdriver.Chrome(
-    executable_path='chromedriver.exe', chrome_options=options)
+    executable_path=DRIVER_PATH, chrome_options=options)
 driver.set_page_load_timeout(120)
 
 try:
