@@ -1,5 +1,8 @@
 venv/
 .DS_Store
+.vscode
+# 開發用程式碼
+*_dev.py 
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

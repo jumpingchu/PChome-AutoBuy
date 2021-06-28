@@ -14,6 +14,22 @@ driver = webdriver.Chrome(
     executable_path=DRIVER_PATH, chrome_options=options)
 driver.set_page_load_timeout(120)
 
+def login():
+    WebDriverWait(driver, 20).until(
+        expected_conditions.presence_of_element_located((By.ID, 'loginAcc'))
+    )
+    elem = driver.find_element_by_id('loginAcc')
+    elem.clear()
+    elem.send_keys(ACC)
+    elem = driver.find_element_by_id('loginPwd')
+    elem.clear()
+    elem.send_keys(PWD)
+    WebDriverWait(driver, 20).until(
+        expected_conditions.element_to_be_clickable((By.ID, "btnLogin"))
+    )
+    driver.find_element_by_id('btnLogin').click()
+    print('>>> 成功登入')
+
 try:
     driver.get(URL)
 
@@ -26,24 +42,12 @@ try:
 
 
     ### 前往購物車 ###
-    WebDriverWait(driver, 20).until(
-        expected_conditions.element_to_be_clickable((By.ID, "ico_cart"))
-    )
-    driver.find_element_by_id('ico_cart').click()
-
+    driver.get("https://ecssl.pchome.com.tw/sys/cflow/fsindex/BigCar/BIGCAR/ItemList")
 
     ### 登入帳戶 ###
-    WebDriverWait(driver, 20).until(
-        expected_conditions.presence_of_element_located((By.ID, 'loginAcc'))
-    )
-    elem = driver.find_element_by_id('loginAcc')
-    elem.send_keys(ACC)
-    elem = driver.find_element_by_id('loginPwd')
-    elem.send_keys(PWD)
-    WebDriverWait(driver, 20).until(
-        expected_conditions.element_to_be_clickable((By.ID, "btnLogin"))
-    )
-    driver.find_element_by_id('btnLogin').click()
+    # 若有使用 CHROME_PATH 記住登入資訊
+    # 第二次執行時請記得註解掉這行！！
+    login()
 
 
     ### 前往結帳 (一次付清) ### (要使用 JS 的方式 execute_script 點擊)
@@ -55,6 +59,13 @@ try:
         "//li[@class='CC']/a[@class='ui-btn']")
     driver.execute_script("arguments[0].click();", button)
 
+    ### 點擊提示訊息確定 ###
+    WebDriverWait(driver, 20).until(
+        expected_conditions.element_to_be_clickable(
+            (By.XPATH, "//a[@id='warning-timelimit_btn_confirm']"))
+    )
+    button = driver.find_element_by_xpath("//a[@id='warning-timelimit_btn_confirm']")
+    driver.execute_script("arguments[0].click();", button)
 
     ### 填入各項資料 ### (BuyerSSN, BirthYear, BirthMonth, BirthDay, multi_CVV2Num)
     WebDriverWait(driver, 20).until(

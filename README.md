@@ -28,7 +28,7 @@
         ```
         ![install_driver_mac](images/install_driver_mac.png)
 
-      2. `settings.py` 的 `driver_path` 填入上面顯示的路徑（如：/usr/local/bin/chromedriver）
+      2. `settings.py` 的 `DRIVER_PATH` 填入上面顯示的路徑（如：/usr/local/bin/chromedriver）
    
    * **Windows**：
       1. 在 Chrome 網址列輸入 chrome://settings/help 確認自己的 Chrome 版本（本人是使用 v91.0）
@@ -55,12 +55,14 @@
 
 1. 將商品加入購物車
 2. 前往購物車
-3. 登入帳戶
+3. 登入帳戶（若已記住登入資訊要記得拿掉）
 4. 點選一次付清
-5. 填入各項資料
-6. 勾選同意
-7. 點擊送出訂單
+5. 提示訊息點擊「確定」（疫情期間的特別狀況）
+6. 填入各項資料
+7. 勾選同意
+8. 點擊送出訂單
 
 ## 貢獻
 
 * 如果你有想要新增的功能，或是你有發現 bug，歡迎隨時發 Issue 或是發 PR 喔！
+* 感謝 [sheway](https://github.com/sheway) 提供新的功能與想法
