@@ -7,17 +7,16 @@
 ## 使用工具
 
 * Python
-* Chrome browser
 * Selenium
-    ```bash
-    $ pip install selenium
-    ```
+* Chrome browser
 
 ## 使用方法
 
 1. 將 repo 複製到自己的資料夾
     ```bash
     $ git clone https://github.com/jumpingchu/PChome-AutoBuy.git
+    $ cd PChome-AutoBuy
+    $ pip install -r requirements.txt
     ```
 2. 準備 chromedriver
    
@@ -56,7 +55,7 @@
 1. 將商品加入購物車
 2. 前往購物車
 3. 登入帳戶（若已記住登入資訊要記得拿掉）
-4. 點選一次付清
+4. 點選一次付清 (支援 LINE Pay)
 5. 提示訊息點擊「確定」（疫情期間的特別狀況）
 6. 填入各項資料
 7. 勾選同意
