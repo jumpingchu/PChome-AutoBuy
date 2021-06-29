@@ -59,6 +59,15 @@ try:
         "//li[@class='CC']/a[@class='ui-btn']")
     driver.execute_script("arguments[0].click();", button)
 
+    ### 前往結帳 (LINE Pay) ### (要使用 JS 的方式 execute_script 點擊)
+    # WebDriverWait(driver, 20).until(
+    #     expected_conditions.element_to_be_clickable(
+    #         (By.XPATH, "//li[@class='LIP']/a[@class='ui-btn line_pay']"))
+    # )
+    # button = driver.find_element_by_xpath(
+    #     "//li[@class='LIP']/a[@class='ui-btn line_pay']")
+    # driver.execute_script("arguments[0].click();", button)
+
     ### 點擊提示訊息確定 ###
     WebDriverWait(driver, 20).until(
         expected_conditions.element_to_be_clickable(
