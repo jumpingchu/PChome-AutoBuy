@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 
 # 欲搶購的連結、登入帳號、登入密碼及其他個資
-from settings_dev import (
+from settings import (
     URL, DRIVER_PATH, CHROME_PATH, ACC, PWD, BuyerSSN, BirthYear, BirthMonth, BirthDay, multi_CVV2Num    
 )
 
