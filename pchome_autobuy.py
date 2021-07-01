@@ -116,12 +116,15 @@ def main():
         # driver.execute_script("arguments[0].click();", button)
 
         ### 點擊提示訊息確定 ###
-        WebDriverWait(driver, 20).until(
-            expected_conditions.element_to_be_clickable(
-                (By.XPATH, "//a[@id='warning-timelimit_btn_confirm']"))
-        )
-        button = driver.find_element_by_xpath("//a[@id='warning-timelimit_btn_confirm']")
-        driver.execute_script("arguments[0].click();", button)
+        try:
+            WebDriverWait(driver, 1).until(
+                expected_conditions.element_to_be_clickable(
+                    (By.XPATH, "//a[@id='warning-timelimit_btn_confirm']"))
+            )
+            button = driver.find_element_by_xpath("//a[@id='warning-timelimit_btn_confirm']")
+            driver.execute_script("arguments[0].click();", button)
+        except:
+            pass
 
 ### 注意！若帳號有儲存付款資訊的話，不需要再次填入身分證字號和出生年月日，這 7 行請註解掉會更快！
         try:
