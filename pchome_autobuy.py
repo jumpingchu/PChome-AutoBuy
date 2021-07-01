@@ -93,8 +93,7 @@ def main():
         ### 前往購物車 ###
         driver.get("https://ecssl.pchome.com.tw/sys/cflow/fsindex/BigCar/BIGCAR/ItemList")
 
-### 注意！若有使用 CHROME_PATH 記住登入資訊，第二次執行時請記得註解掉登入這行！
-        ### 登入帳戶 ###
+        ### 登入帳戶 ### 注意！若有使用 CHROME_PATH 記住登入資訊，第二次執行時請記得註解掉登入這行！
         login()
 
         ### 前往結帳 (一次付清) ### (要使用 JS 的方式 execute_script 點擊)
@@ -106,7 +105,9 @@ def main():
             "//li[@class='CC']/a[@class='ui-btn']")
         driver.execute_script("arguments[0].click();", button)
 
-        ### 前往結帳 (LINE Pay) ### (要使用 JS 的方式 execute_script 點擊)
+        """
+        LINE Pay 付款
+        """
         # WebDriverWait(driver, 20).until(
         #     expected_conditions.element_to_be_clickable(
         #         (By.XPATH, "//li[@class='LIP']/a[@class='ui-btn line_pay']"))
@@ -126,7 +127,7 @@ def main():
         except:
             pass
 
-### 注意！若帳號有儲存付款資訊的話，不需要再次填入身分證字號和出生年月日，這 7 行請註解掉會更快！
+        ### 填入個資 ### 注意！若帳號有儲存付款資訊的話，不需要再次填入身分證字號和出生年月日，可註解掉直接進行信用卡後三碼！
         try:
             input_info(xpaths['BuyerSSN'], BuyerSSN)
             input_info(xpaths['BirthYear'], BirthYear)
@@ -138,8 +139,7 @@ def main():
         ### 填入信用卡背面安全碼 3 碼 (multi_CVV2Num) ###
         input_info(xpaths['multi_CVV2Num'], multi_CVV2Num)
 
-### 注意！若帳號有儲存付款資訊的話，不需要再次勾選，請註解掉！
-        ### 勾選同意 ###
+        ### 勾選同意 ### 注意！若帳號有儲存付款資訊的話，不需要再次勾選，請註解掉！
         click_button(xpaths['check_agree'])
 
         ### 送出訂單 ### (要使用 JS 的方式 execute_script 點擊)
