@@ -85,13 +85,13 @@ def get_product_status(product_id):
 集中管理需要的 xpath
 """
 xpaths = {
-    'add_to_cart': "//li[@id='ButtonContainer']/button",
-    'check_agree': "//input[@name='chk_agree']",
-    'BuyerSSN': "//input[@id='BuyerSSN']",
-    'BirthYear': "//input[@name='BirthYear']",
-    'BirthMonth': "//input[@name='BirthMonth']",
-    'BirthDay': "//input[@name='BirthDay']",
-    'multi_CVV2Num': "//input[@name='multi_CVV2Num']"
+    'add_to_cart': r"//li[@id='ButtonContainer']/button",
+    'check_agree': r"//input[@name='chk_agree']",
+    'BuyerSSN': r"//input[@id='BuyerSSN']",
+    'BirthYear': r"//input[@name='BirthYear']",
+    'BirthMonth': r"//input[@name='BirthMonth']",
+    'BirthDay': r"//input[@name='BirthDay']",
+    'multi_CVV2Num': r"//input[@name='multi_CVV2Num']"
     # 'pay_once': "//li[@class=CC]/a[@class='ui-btn']",
     # 'pay_line': "//li[@class=LIP]/a[@class='ui-btn line_pay']", 
     # 'submit': "//a[@id='btnSubmit']",
