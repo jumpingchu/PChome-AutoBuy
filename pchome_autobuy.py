@@ -21,7 +21,7 @@ from settings import (
 )
 
 def login():
-    WebDriverWait(driver, 20).until(
+    WebDriverWait(driver, 2).until(
         expected_conditions.presence_of_element_located((By.ID, 'loginAcc'))
     )
     elem = driver.find_element_by_id('loginAcc')
@@ -62,7 +62,7 @@ def input_flow():
         input_info(xpaths['BirthMonth'], BirthMonth)
         input_info(xpaths['BirthDay'], BirthDay)
     except:
-        pass
+        print("Birth's info already filled in!")
     finally:
         input_info(xpaths['multi_CVV2Num'], multi_CVV2Num)
 
@@ -112,9 +112,12 @@ def main():
     driver.get("https://ecssl.pchome.com.tw/sys/cflow/fsindex/BigCar/BIGCAR/ItemList")
 
     """
-    登入帳戶（注意！若有使用 CHROME_PATH 記住登入資訊，第二次執行時請記得註解掉登入這行！）
+    登入帳戶（若有使用 CHROME_PATH 記住登入資訊，第二次執行時可註解掉）
     """
-    login()
+    try:
+        login()
+    except:
+        print('Already Logged in!')
 
     """
     前往結帳 (一次付清) (要使用 JS 的方式 execute_script 點擊)
@@ -149,7 +152,7 @@ def main():
         button = driver.find_element_by_xpath("//a[@id='warning-timelimit_btn_confirm']")
         driver.execute_script("arguments[0].click();", button)
     except:
-        pass
+        print('Warning message passed!')
 
     """
     填入個資
@@ -186,8 +189,8 @@ driver.set_page_load_timeout(120)
 抓取商品開賣資訊，並嘗試搶購
 """
 curr_retry = 0
-max_retry = 5   # 重試達 5 次就結束程式
-wait_sec = 1
+max_retry = 5   # 重試達 5 次就結束程式，可自行調整
+wait_sec = 1    # 1 秒後重試，可自行調整秒數
 
 if __name__ == "__main__":
     product_id = get_product_id(URL)
