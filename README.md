@@ -86,7 +86,6 @@
 * 例如：發現進入購物車頁面卻沒有點選「一次付清」，有可能是前面的登入步驟已被省略但程式沒有註解掉，導致找不到登入的位置
 
 --
-
 ### Q2：使用了 CHROME_PATH 卻還是要重新登入？
 
 * 可能是 CHROME_PATH 設定有誤，導致登入 session 沒有成功被瀏覽器紀錄
@@ -94,13 +93,11 @@
 * 可能的解決方法可參考 [Issue #8](https://github.com/jumpingchu/PChome-AutoBuy/issues/8)
 
 --
-
 ### Q3：有「結帳禮」擋住購買流程？
 
 * 經 [Issue #10](https://github.com/jumpingchu/PChome-AutoBuy/issues/10) 回報，可能是使用了「聯名卡付款」時會有的狀況，可手動點選、或是改用其他信用卡或付款方式
 
 --
-
 ### Q4：一直無法加入購物車？
 
 * 目前的解決方案是在加入購物車之後等待 0.5 秒，秒數可依據搶購狀況自行斟酌，詳情請參考 [Issue #12](https://github.com/jumpingchu/PChome-AutoBuy/issues/12)
