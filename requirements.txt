@@ -1,6 +1,6 @@
 certifi==2024.7.4
 chardet==4.0.0
 idna==3.7
-requests==2.32.0
+requests==2.32.4
 selenium==3.141.0
 urllib3==1.26.19
