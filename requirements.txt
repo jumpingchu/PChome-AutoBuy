@@ -3,4 +3,4 @@ chardet==4.0.0
 idna==3.7
 requests==2.32.0
 selenium==3.141.0
-urllib3==1.26.19
+urllib3==2.5.0
